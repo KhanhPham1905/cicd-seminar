@@ -1,0 +1,20 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+  - name: update repository index (Ubuntu)
+    apt:
+      update_cache: true
+    when: ansible_distribution == "Ubuntu"
+
+- hosts: all
+  become: true
+  roles:
+    # - ../roles/common
+    - ../roles/backend
+
+# - hosts: web
+#   become: true
+#   roles:
+#     - ../roles/backend

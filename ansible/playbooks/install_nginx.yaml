@@ -1,0 +1,32 @@
+- name: Cài đặt Nginx trên máy chủ từ xa
+  hosts: web
+  become: true  # Chạy với quyền sudo
+
+  tasks:
+    - name: Cập nhật danh sách package (chỉ với Debian/Ubuntu)
+      tags:
+        - frontend
+      apt:
+        update_cache: yes
+
+    - name: Cài đặt Nginx (Debian/Ubuntu)
+      apt:
+        name: nginx
+        state: present
+        autoremove: yes
+      when: ansible_os_family == "Debian"
+
+    - name: Uninstall Nginx (Debian/Ubuntu)
+      tags:
+        - frontend
+      service:
+        name: nginx
+        state: stopped
+      when: ansible_os_family == "Debian" 
+
+
+
+
+
+Lay code moi Trien khai API tren 6 con server: .129, .130
+serial: 50%

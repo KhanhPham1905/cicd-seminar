@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  flask-app:
+    container_name: flask-app
+    image: vinhbh/flask-sum-api:2.0
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+    restart: unless-stopped
