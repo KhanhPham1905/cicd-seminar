@@ -1,8 +1,8 @@
 
-# - name: Check if docker-compose.yml exists
-#   stat:
-#     path: /ptit-backend/flask-api/docker-compose.yml
-#   register: compose_file
+- name: Check if docker-compose.yml exists
+  stat:
+    path: /ptit-backend/flask-api/docker-compose.yml
+  register: compose_file
 
 - name: Run Docker Compose Down
   shell: sudo docker compose down
@@ -26,7 +26,10 @@
     src: flask-api
     dest: /ptit-backend  
 
-- name: Run Docker Compose Up (with cache cleared)
-  shell: sudo docker compose up --build -d  --no-cache
+
+- name: Run Docker Compose Up (rebuild if needed)
+  shell: |
+    docker compose build
+    docker compose up -d
   args:
     chdir: /ptit-backend/flask-api
