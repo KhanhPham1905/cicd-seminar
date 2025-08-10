@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_USERNAME = 'vinhbh'
+        DOCKER_USERNAME = 'khanhquocphamdev'
         DOCKER_HUB_CREDENTIALS = 'dockerhub-acc'
         IMAGE_NAME = "${DOCKER_USERNAME}/flask-sum-api:2.0"
         CONTAINER_NAME = "flask-test-container"
@@ -42,9 +42,9 @@ pipeline {
 
         stage('Deploy web server') {
             steps {
-                ansiblePlaybook credentialsId: 'simone2', 
+                ansiblePlaybook credentialsId: 'ansible', 
                 disableHostKeyChecking: true, 
-                installation: 'ansible2', 
+                installation: 'my-ansible', 
                 inventory: './ansible/inventory', 
                 playbook: './ansible/playbooks/ansible.yaml', 
                 vaultTmpPath: ''

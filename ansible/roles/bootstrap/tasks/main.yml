@@ -1,19 +1,19 @@
 - name: install update
   apt:
     update_cache: yes
-- name: create simone user
+- name: create khanhabc user
   user:
-    name: simone
+    name: khanhabc
     groups: root
 
-- name: add ssh key for simone
+- name: add ssh key for khanhabc
   authorized_key:
-    user: simone
-    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQDzepAOEkUhbYrDKwoSGAEi4oiT0ecXBOOEH7sTue3 ansible"
-- name: add sudoers file for simone
+    user: khanhabc
+    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEYMLxBjA5wV3daKKIF1Ur5tzSORfVjiRGDJ1ZTckvfU ansible"
+- name: add sudoers file for khanhabc
   copy:
-    src: sudoer_simone
-    dest: /etc/sudoers.d/simone
+    src: sudoer_khanhabc
+    dest: /etc/sudoers.d/khanhabc
     owner: root
     group: root
     mode: 0440
