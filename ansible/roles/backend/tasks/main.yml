@@ -27,6 +27,6 @@
     dest: /ptit-backend  
 
 - name: Run Docker Compose Up (with cache cleared)
-  shell: sudo docker compose up --build -d
+  shell: sudo docker compose up --build -d  --no-cache
   args:
     chdir: /ptit-backend/flask-api
