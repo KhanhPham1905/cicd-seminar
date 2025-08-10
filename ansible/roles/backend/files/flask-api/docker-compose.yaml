@@ -3,9 +3,9 @@ version: '3.8'
 services:
   flask-app:
     container_name: flask-app
-    image: khanhquocphamdev/flask-sum-api:2.0
+    image: khanhquocphamdev/flask-sum-api:2.1
     ports:
       - "5000:5000"
     environment:
       - FLASK_ENV=development
-    restart: unless-stopped
+    restart: always
