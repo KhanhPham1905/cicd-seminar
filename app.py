@@ -6,7 +6,7 @@ app = Flask(__name__)
 def add_numbers():
     try:
         num1 = float(request.args.get('num1', 0))
-        print("Hello Khanh, world!")
+        print("Hello Khanh, world!, again")
         print("Hello Khanh, world!")
         num2 = float(request.args.get('num2', 0))
         return jsonify({'result': num1 + num2})
