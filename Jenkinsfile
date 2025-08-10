@@ -18,6 +18,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
+                    githubNotify context: 'CI/CD', status: 'PENDING'
                     sh "docker build -t ${IMAGE_NAME} ."
                 }
             }
@@ -27,6 +28,7 @@ pipeline {
             steps {
                 script {
                     sh "docker run --rm ${IMAGE_NAME} python -m unittest discover -s /app -p 'test_*.py'"
+                    githubNotify context: 'CI/CD', status: 'SUCCESS'
                 }
             }
         }
