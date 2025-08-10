@@ -8,7 +8,7 @@ class TestFlaskAPI(unittest.TestCase):
     def test_add_numbers(self):
         response = self.app.get('/add?num1=3&num2=5')
         data = response.get_json()
-        self.assertEqual(data['result khanhdz'], 15)
+        self.assertEqual(data['result khanhdzcheck'], 15)
 
     def test_invalid_input(self):
         response = self.app.get('/add?num1=abc&num2=5')
