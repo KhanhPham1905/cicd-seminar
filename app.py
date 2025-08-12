@@ -7,7 +7,7 @@ def add_numbers():
     try:
         num1 = float(request.args.get('num1', 0))
         print("Hello Khanh, world!, new code. test cicd")
-        print("Hello Khanh, world!")
+        print("Hello Khanh, world!, test cicd")
         num2 = float(request.args.get('num2', 0))
         return jsonify({'result khanhdzcheck': num1 * num2})
     except ValueError:

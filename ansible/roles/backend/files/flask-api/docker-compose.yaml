@@ -9,3 +9,9 @@ services:
     environment:
       - FLASK_ENV=development
     restart: always
+
+  node_exporter:
+    image: prom/node-exporter:latest
+    container_name: node_exporter
+    ports:
+      - "9100:9100"
