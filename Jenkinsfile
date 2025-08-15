@@ -4,7 +4,7 @@ pipeline {
     environment {
         DOCKER_USERNAME = 'khanhquocphamdev'
         DOCKER_HUB_CREDENTIALS = 'dockerhub-acc'
-        IMAGE_NAME = "${DOCKER_USERNAME}/flask-sum-api:2.1"
+        IMAGE_NAME = "${DOCKER_USERNAME}/flask-sum-api:latest"
         CONTAINER_NAME = "flask-test-container"
     }
 
